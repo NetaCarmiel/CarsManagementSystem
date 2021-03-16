@@ -1,0 +1,96 @@
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-6 offset-md-3">
+            <form [formGroup]="registerForm" >
+                <div class="form-group">
+                    <label>Car LP</label>
+                    <input type="text" formControlName="CarLP" class="form-control"[(ngModel)]="CarLP" [ngClass]="{ 'is-invalid': submitted &amp;&amp; registerForm.controls.CarLP.errors }" />
+                    <div *ngIf="submitted &amp;&amp; registerForm.controls.CarLP.errors" class="text-danger">
+                        <div *ngIf="registerForm.controls.CarLP.errors.required">Car LP is required</div>
+                    </div>
+                </div>
+
+                <div class = "form-group">
+                    <label>Type</label>
+                <select formControlName="CarType" class="form-control"  [(ngModel)]="CarType" [ngClass]="{ 'is-invalid': submitted &amp;&amp; registerForm.controls.CarType.errors }">
+                    <option>--Select--</option>
+                    <option *ngFor="let depName of TypeList">
+                        {{depName.CarType}}
+                    </option>
+                </select>
+                <div *ngIf="submitted &amp;&amp; registerForm.controls.CarType.errors" class="text-danger">
+                    <div *ngIf="registerForm.controls.CarType.errors.required">Car Type is required</div>
+                </div>
+                </div>
+
+
+                <div class = "form-group">
+                    <label>Employee First Name</label>
+                <select formControlName="EmployeeFirst" class="form-control"  [(ngModel)]="EmployeeFirst">
+                    <option>--Select--</option>
+                    <option *ngFor="let EmpName of EmpList">
+                        {{EmpName.EmployeeFirst}}
+                    </option>
+                </select>
+                </div>
+              
+
+                <div class="form-group">
+                    <label>Is 4x4</label>
+                    <input type="text" formControlName="Is4x4" class="form-control"[(ngModel)]="Is4x4" [ngClass]="{ 'is-invalid': submitted &amp;&amp; registerForm.controls.Is4x4.errors }" />
+                    <div *ngIf="submitted &amp;&amp; registerForm.controls.Is4x4.errors" class="text-danger">
+                        <div *ngIf="registerForm.controls.Is4x4.errors.required">Is 4x4 is required</div>
+                    </div>
+                </div>
+
+
+                <div class="form-group">
+                    <label>Engine Capacity</label>
+                    <input type="number" formControlName="EngineCapacity" class="form-control"[(ngModel)]="EngineCapacity" 
+                    [ngClass]="{ 'is-invalid': submitted &amp;&amp; registerForm.controls.EngineCapacity.errors }" />
+                </div>
+
+                <div class="form-group">
+                    <label>Manufacture Year</label>
+                    <input type="number" formControlName="ManufactureYear" class="form-control"[(ngModel)]="ManufactureYear" [ngClass]="{ 'is-invalid': submitted &amp;&amp; registerForm.controls.ManufactureYear.errors }" />
+                    <div *ngIf="submitted &amp;&amp; registerForm.controls.ManufactureYear.errors" class="text-danger">
+                        <div *ngIf="registerForm.controls.ManufactureYear.errors.required">Manufacture Year is required</div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>Note</label>
+                    <input type="text" class="form-control" [(ngModel)]="Note">
+                </div>
+                
+                <div class="form-group">
+                    <label>Treatment Date</label>
+                    <input type="date" formControlName="TreatmentDate" class="form-control"[(ngModel)]="TreatmentDate" [ngClass]="{ 'is-invalid': submitted &amp;&amp; registerForm.controls.TreatmentDate.errors }" />
+                    <div *ngIf="submitted &amp;&amp; registerForm.controls.TreatmentDate.errors" class="text-danger">
+                        <div *ngIf="registerForm.controls.TreatmentDate.errors.required">Treatment Date is required</div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>Edit Date</label>
+                    <input type="date" formControlName="EditDate" class="form-control"[(ngModel)]="EditDate" [ngClass]="{ 'is-invalid': submitted &amp;&amp; registerForm.controls.EditDate.errors }" />
+                    <div *ngIf="submitted &amp;&amp; registerForm.controls.EditDate.errors" class="text-danger">
+                        <div *ngIf="registerForm.controls.EditDate.errors.required">Edit Date is required</div>
+                    </div>
+                </div>
+               
+            </form>
+        </div>
+    </div>
+</div>
+
+
+<button (click)="addCar()" *ngIf="emp.CarID==0" class="btn btn-primary">
+    Add
+</button>
+
+
+<button (click)="updateCar()" *ngIf="emp.CarID!=0" class="btn btn-primary">
+    Update
+</button>  

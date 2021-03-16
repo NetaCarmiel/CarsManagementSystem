@@ -1,0 +1,26 @@
+
+<div class="form-froup row">
+   
+
+    <label class="col-sm-2 col-form-labal">First Name</label>
+    <div class = "col-sm-10">
+        <input type="text" class="form-control" [(ngModel)]="EmployeeFirst"
+        placeholder="Enter First Name">
+    </div>
+
+    
+    <label class="col-sm-2 col-form-labal">Last Name</label>
+    <div class = "col-sm-10">
+        <input type="text" class="form-control" [(ngModel)]="EmployeeLast"
+        placeholder="Enter Last Name">
+    </div>
+
+</div>
+
+<button (click)="addEmployee()" *ngIf="dep.EmployeeID==0" class="btn btn-primary">
+    Add
+</button>
+
+<button (click)="updateEmployee()" *ngIf="dep.EmployeeID!=0" class="btn btn-primary">
+    Update
+</button>  
